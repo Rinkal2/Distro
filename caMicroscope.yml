@@ -39,12 +39,12 @@ services:
     restart: unless-stopped
     volumes:
       - ./images/:/images/
-  viewer:
-    build: "https://github.com/camicroscope/caMicroscope.git#v3.5.10"
+ viewer:
+    build: "../caMicroscope"
     container_name: ca-front
-    restart: unless-stopped
     volumes:
       - ./config/login.html:/var/www/html/login.html
+      - ../caMicroscope/:/var/www/html/
     logging:
       driver: none
   loader:
